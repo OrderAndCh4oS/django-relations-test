@@ -1,5 +1,3 @@
-from collections import OrderedDict
-
 from rest_framework import serializers
 from rest_framework.exceptions import ValidationError
 
@@ -125,10 +123,8 @@ class RecipientSerializer(
 
     def create(self, validated_data):
         person = self.create_person(validated_data)
-        scheduled_mail = self.create_scheduled_mail(validated_data)
         recipient = Recipient.objects.create(
             person=person,
-            scheduled_mail=scheduled_mail,
             **validated_data
         )
 
