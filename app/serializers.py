@@ -6,15 +6,13 @@ from app.models import Person, Recipient, ScheduledMail, Email
 class PersonSerializer(serializers.HyperlinkedModelSerializer):
     class Meta:
         model = Person
-        fields = ('name',)
-        read_only_fields = ('uuid', 'url')
+        fields = ('uuid', 'url', 'name',)
 
 
 class EmailSerializer(serializers.HyperlinkedModelSerializer):
     class Meta:
         model = Email
-        fields = ('message',)
-        read_only_fields = ('uuid', 'url')
+        fields = ('uuid', 'url', 'message',)
 
 
 class RecipientSerializer(serializers.HyperlinkedModelSerializer):
@@ -22,8 +20,7 @@ class RecipientSerializer(serializers.HyperlinkedModelSerializer):
 
     class Meta:
         model = Recipient
-        fields = ('person', 'recipient_type')
-        read_only_fields = ('uuid', 'url')
+        fields = ('uuid', 'url', 'person', 'recipient_type')
 
 
 class ScheduledMailSerializer(serializers.HyperlinkedModelSerializer):
@@ -32,8 +29,7 @@ class ScheduledMailSerializer(serializers.HyperlinkedModelSerializer):
 
     class Meta:
         model = ScheduledMail
-        fields = ('email', 'recipients')
-        read_only_fields = ('uuid', 'url')
+        fields = ('uuid', 'url', 'email', 'recipients')
 
     def create(self, validated_data):
         recipients_data = validated_data.pop('recipients')
