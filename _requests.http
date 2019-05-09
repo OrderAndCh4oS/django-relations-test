@@ -10,11 +10,18 @@ POST http://localhost:8000/scheduled-mail
 Content-Type: application/json
 
 {
-  "message": "Hi",
+  "email": {
+    "message": "Hi"
+  },
   "recipients": [
     {
       "person": {
         "name": "jack"
+      }
+    },
+    {
+      "person": {
+        "name": "jill"
       }
     }
   ]
