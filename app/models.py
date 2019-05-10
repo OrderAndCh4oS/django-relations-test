@@ -15,7 +15,7 @@ class Email(models.Model):
 
 class ScheduledMail(models.Model):
     uuid = models.UUIDField(default=uuid.uuid4, primary_key=True)
-    email = models.ForeignKey(Email, on_delete=models.CASCADE)
+    email = models.ForeignKey(Email, on_delete=models.SET_NULL, null=True)
 
 
 class Recipient(models.Model):

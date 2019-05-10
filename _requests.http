@@ -6,7 +6,7 @@
 # * 'mptr' and 'fptr' create a POST request to submit a form with a text or file field (multipart/form-data);
 
 
-POST http://localhost:8000/scheduled-mail
+POST http://localhost:8000/scheduled-mail/
 Content-Type: application/json
 
 {
@@ -22,6 +22,52 @@ Content-Type: application/json
     {
       "person": {
         "name": "jill"
+      }
+    }
+  ]
+}
+
+###
+
+POST http://localhost:8000/scheduled-mail/
+Content-Type: application/json
+
+{
+  "email": {
+    "message": "Hi"
+  },
+  "recipients": [
+    {
+      "person": {
+        "uuid": "2e4adda3-c2d5-4388-af2b-5b38498d3fc1"
+      }
+    },
+    {
+      "person": {
+        "uuid": "5975d275-c1b7-47a2-9256-bf9a1f72615c"
+      }
+    }
+  ]
+}
+
+###
+
+POST http://localhost:8000/scheduled-mail/
+Content-Type: application/json
+
+{
+  "email": {
+    "uuid": "60d836b0-faaa-4eb8-b1c8-a4f5d2c6b666"
+  },
+  "recipients": [
+    {
+      "person": {
+        "uuid": "2e4adda3-c2d5-4388-af2b-5b38498d3fc1"
+      }
+    },
+    {
+      "person": {
+        "uuid": "5975d275-c1b7-47a2-9256-bf9a1f72615c"
       }
     }
   ]
